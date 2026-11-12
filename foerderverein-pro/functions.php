@@ -43,27 +43,32 @@ function foerderverein_pro_setup() {
 		array(
 			'name'  => __( 'Vereinsblau', 'foerderverein-pro' ),
 			'slug'  => 'fv-blue',
-			'color' => '#294597',
+			'color' => '#22274e',
 		),
 		array(
 			'name'  => __( 'Vereinsblau dunkel', 'foerderverein-pro' ),
 			'slug'  => 'fv-blue-dark',
-			'color' => '#1d3270',
+			'color' => '#171b3a',
 		),
 		array(
-			'name'  => __( 'Vereinspink', 'foerderverein-pro' ),
-			'slug'  => 'fv-pink',
-			'color' => '#c81e84',
+			'name'  => __( 'Vereinsrot', 'foerderverein-pro' ),
+			'slug'  => 'fv-red',
+			'color' => '#e53832',
+		),
+		array(
+			'name'  => __( 'Grau', 'foerderverein-pro' ),
+			'slug'  => 'fv-grey',
+			'color' => '#c0c0c1',
 		),
 		array(
 			'name'  => __( 'Dunkel', 'foerderverein-pro' ),
 			'slug'  => 'fv-dark',
-			'color' => '#10192e',
+			'color' => '#12152c',
 		),
 		array(
 			'name'  => __( 'Hellgrau', 'foerderverein-pro' ),
-			'slug'  => 'fv-grey',
-			'color' => '#f4f5f8',
+			'slug'  => 'fv-grey-light',
+			'color' => '#f3f3f4',
 		),
 		array(
 			'name'  => __( 'Weiß', 'foerderverein-pro' ),
@@ -76,17 +81,17 @@ function foerderverein_pro_setup() {
 		array(
 			'name'     => __( 'Vereinsblau', 'foerderverein-pro' ),
 			'slug'     => 'fv-blue-gradient',
-			'gradient' => 'linear-gradient(135deg, #1d3270 0%, #294597 100%)',
+			'gradient' => 'linear-gradient(135deg, #171b3a 0%, #22274e 100%)',
 		),
 		array(
-			'name'     => __( 'Vereinspink', 'foerderverein-pro' ),
-			'slug'     => 'fv-pink-gradient',
-			'gradient' => 'linear-gradient(135deg, #a5176c 0%, #c81e84 100%)',
+			'name'     => __( 'Vereinsrot', 'foerderverein-pro' ),
+			'slug'     => 'fv-red-gradient',
+			'gradient' => 'linear-gradient(135deg, #c72e29 0%, #e53832 100%)',
 		),
 		array(
 			'name'     => __( 'Blau nach Pink', 'foerderverein-pro' ),
 			'slug'     => 'fv-blue-pink-gradient',
-			'gradient' => 'linear-gradient(135deg, #294597 0%, #c81e84 100%)',
+			'gradient' => 'linear-gradient(135deg, #22274e 0%, #e53832 100%)',
 		),
 	) );
 
@@ -153,6 +158,16 @@ function foerderverein_pro_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 
+	register_sidebar( array(
+		'name'          => __( 'Kontaktformular-Bereich', 'foerderverein-pro' ),
+		'id'            => 'contact-form',
+		'description'   => __( 'Für Formular-Plugins (z. B. Contact Form 7, WPForms). Erscheint auf den Vorlagen „Kontaktseite" und „Formularseite".', 'foerderverein-pro' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
 	for ( $i = 1; $i <= 3; $i++ ) {
 		register_sidebar( array(
 			/* translators: %d: Nummer der Footer-Spalte. */
@@ -167,6 +182,16 @@ function foerderverein_pro_widgets_init() {
 	}
 }
 add_action( 'widgets_init', 'foerderverein_pro_widgets_init' );
+
+/**
+ * Blockmuster-Kategorie für Vereinsbausteine.
+ */
+function foerderverein_pro_pattern_category() {
+	register_block_pattern_category( 'foerderverein', array(
+		'label' => __( 'Förderverein', 'foerderverein-pro' ),
+	) );
+}
+add_action( 'init', 'foerderverein_pro_pattern_category' );
 
 /**
  * Eigene Inhaltstypen.

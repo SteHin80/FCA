@@ -1,6 +1,6 @@
 /*
  * Editor-Styles: Der Block-Editor sieht aus wie die Website.
- * Farben/Abstände entsprechen style.css (Vereinsblau #294597, Vereinspink #c81e84).
+ * Farben/Abstände entsprechen style.css (Vereinsblau #22274e, Vereinspink #e53832).
  */
 
 .editor-styles-wrapper {
@@ -27,21 +27,21 @@
 .editor-styles-wrapper h4,
 .editor-styles-wrapper h5,
 .editor-styles-wrapper h6 {
-  color: #10192e;
+  color: #12152c;
   line-height: 1.25;
 }
 
 .editor-styles-wrapper a {
-  color: #294597;
+  color: #22274e;
 }
 
 .editor-styles-wrapper a:hover {
-  color: #1d3270;
+  color: #171b3a;
 }
 
 /* Buttons im Editor wie im Frontend */
 .editor-styles-wrapper .wp-block-button__link {
-  background-color: #c81e84;
+  background-color: #e53832;
   color: #ffffff;
   border-radius: 10px;
   font-weight: 700;
@@ -49,18 +49,18 @@
 
 .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link {
   background-color: transparent;
-  color: #c81e84;
+  color: #e53832;
   border: 2px solid currentColor;
 }
 
 /* Zitate */
 .editor-styles-wrapper .wp-block-quote {
-  border-left: 4px solid #c81e84;
+  border-left: 4px solid #e53832;
 }
 
 /* Trenner in Vereinsfarben */
 .editor-styles-wrapper hr.wp-block-separator {
-  border-color: #c81e84;
+  border-color: #e53832;
 }
 
 /* Tabellen */
@@ -69,5 +69,5 @@
 }
 
 .editor-styles-wrapper .wp-block-table th {
-  background-color: #f4f5f8;
+  background-color: #f3f3f4;
 }

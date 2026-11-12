@@ -3,7 +3,7 @@ Theme Name: Förderverein Pro
 Theme URI: https://example.com/foerderverein-pro
 Author: Förderverein
 Description: WordPress-Theme für einen Förderverein, der einen Amateurfussballverein unterstützt. Bearbeitbarer Header und Footer, Seitenvorlagen für jeden Seitentyp, Veranstaltungen und Sponsoren als eigene Inhaltstypen. Vollständig responsive nach Mobile-First.
-Version: 1.1.0
+Version: 1.3.0
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -19,13 +19,14 @@ Tags: custom-menu, custom-logo, featured-images, translation-ready, one-column, 
  */
 
 :root {
-  --fv-primary: #294597;
-  --fv-primary-dark: #1d3270;
-  --fv-accent: #c81e84;
-  --fv-accent-dark: #a5176c;
-  --fv-dark: #10192e;
-  --fv-grey: #f4f5f8;
-  --fv-text: #232a38;
+  --fv-primary: #22274e;
+  --fv-primary-dark: #171b3a;
+  --fv-accent: #e53832;
+  --fv-accent-dark: #c72e29;
+  --fv-dark: #12152c;
+  --fv-grey: #c0c0c1;
+  --fv-grey-light: #f3f3f4;
+  --fv-text: #23263a;
   --fv-radius: 10px;
   --fv-max: 1120px;
   --fv-break: 782px;
@@ -80,7 +81,7 @@ input[type="submit"].fv-btn {
 /* ---------- Topbar (mobil: gestapelt, zentriert) ---------- */
 .fv-topbar {
   background: var(--fv-dark);
-  color: #c8d0e2;
+  color: #c0c0c1;
   font-size: 0.85rem;
   padding: 0.5rem 0;
 }
@@ -146,7 +147,7 @@ input[type="submit"].fv-btn {
   height: 44px;
   padding: 10px;
   background: transparent;
-  border: 1px solid #d5d9e3;
+  border: 1px solid #c0c0c1;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -172,7 +173,7 @@ input[type="submit"].fv-btn {
   margin: 0;
   padding: 0;
 }
-.fv-nav li { border-top: 1px solid #edeef3; }
+.fv-nav li { border-top: 1px solid #d6d6d7; }
 .fv-nav a {
   display: block;
   color: var(--fv-text);
@@ -188,7 +189,7 @@ input[type="submit"].fv-btn {
 
 .fv-header-widgets {
   padding: 0.8rem 0 0;
-  border-top: 1px solid #e8eaf0;
+  border-top: 1px solid #c0c0c1;
   margin-top: 0.4rem;
   font-size: 0.92rem;
 }
@@ -224,13 +225,13 @@ input[type="submit"].fv-btn {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(16, 25, 46, 0.55);
+  background: rgba(18, 21, 44, 0.55);
 }
 .fv-hero--image > .fv-container { position: relative; }
 
 /* ---------- Sections (mobil: kompakter) ---------- */
 .fv-section { padding: 2.25rem 0; }
-.fv-section--grey { background: var(--fv-grey); }
+.fv-section--grey { background: var(--fv-grey-light); }
 .fv-section__title {
   text-align: center;
   font-size: clamp(1.35rem, 4vw, 2.1rem);
@@ -260,10 +261,10 @@ input[type="submit"].fv-btn {
 
 .fv-card {
   background: #fff;
-  border: 1px solid #e3e6ee;
+  border: 1px solid #c0c0c1;
   border-radius: var(--fv-radius);
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(16, 25, 46, 0.06);
+  box-shadow: 0 2px 8px rgba(18, 21, 44, 0.06);
   display: flex;
   flex-direction: column;
 }
@@ -331,7 +332,7 @@ input[type="submit"].fv-btn {
 .fv-pagination { margin-top: 2rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
 .fv-pagination .page-numbers {
   padding: 0.45rem 0.9rem;
-  border: 1px solid #d5d9e3;
+  border: 1px solid #c0c0c1;
   border-radius: 8px;
   color: var(--fv-text);
 }
@@ -384,7 +385,7 @@ input[type="submit"].fv-btn {
 
 /* ---------- Sidebar / Widgets ---------- */
 .fv-sidebar .widget {
-  background: var(--fv-grey);
+  background: var(--fv-grey-light);
   border-radius: var(--fv-radius);
   padding: 1.2rem 1.3rem;
   margin-bottom: 1.4rem;
@@ -393,7 +394,7 @@ input[type="submit"].fv-btn {
 
 /* ---------- Kommentare ---------- */
 .comment-list { list-style: none; padding: 0; }
-.comment-list .comment { border-bottom: 1px solid #e3e6ee; padding: 1rem 0; }
+.comment-list .comment { border-bottom: 1px solid #c0c0c1; padding: 1rem 0; }
 
 /* ---------- Formulare (mobil: große Touch-Ziele) ---------- */
 input[type="text"],
@@ -405,7 +406,7 @@ textarea,
 select {
   width: 100%;
   padding: 0.7rem 0.8rem;
-  border: 1px solid #ccd1dd;
+  border: 1px solid #c0c0c1;
   border-radius: 8px;
   font: inherit;
 }
@@ -515,4 +516,77 @@ select {
 @media (prefers-reduced-motion: reduce) {
   .fv-nav-toggle span { transition: none; }
   .fv-btn { transition: none; }
+}
+
+/* ---------- Kontaktformular-Plugins (Contact Form 7, WPForms, Forminator, Gravity Forms) ---------- */
+.fv-form-area {
+  margin-top: 2rem;
+  background: var(--fv-grey-light);
+  border-radius: var(--fv-radius);
+  padding: 1.5rem;
+}
+
+.wpcf7-form-control-wrap { display: block; margin-bottom: 1rem; }
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 input[type="tel"],
+.wpcf7 input[type="url"],
+.wpcf7 input[type="date"],
+.wpcf7 textarea,
+.wpcf7 select {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--fv-grey);
+  border-radius: 8px;
+  font: inherit;
+}
+.wpcf7 input[type="submit"],
+.wpcf7 button[type="submit"] {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  background: var(--fv-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--fv-radius);
+  font-weight: 700;
+  cursor: pointer;
+}
+.wpcf7 input[type="submit"]:hover { background: var(--fv-accent-dark); }
+
+.wpforms-container .wpforms-form input[type="text"],
+.wpforms-container .wpforms-form input[type="email"],
+.wpforms-container .wpforms-form input[type="tel"],
+.wpforms-container .wpforms-form textarea,
+.wpforms-container .wpforms-form select {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--fv-grey);
+  border-radius: 8px;
+}
+.wpforms-container .wpforms-form button[type="submit"] {
+  background: var(--fv-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--fv-radius);
+  padding: 0.7rem 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.forminator-custom-form input[type="text"],
+.forminator-custom-form input[type="email"],
+.forminator-custom-form textarea,
+.forminator-custom-form select {
+  border: 1px solid var(--fv-grey);
+  border-radius: 8px;
+}
+
+/* ---------- FAQ (Vorlage) ---------- */
+.fv-faq-item {
+  border-bottom: 1px solid var(--fv-grey);
+  padding: 1rem 0;
+}
+.fv-faq-item h3 {
+  margin: 0 0 0.4rem;
+  color: var(--fv-primary);
 }

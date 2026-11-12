@@ -1,19 +1,26 @@
 # Förderverein Pro – WordPress-Theme
 
-WordPress-Theme für einen Förderverein, der einen Amateurfussballverein unterstützt. Farbschema: Blau (#294597) und Pink/Rot (#c81e84).
+WordPress-Theme für einen Förderverein, der einen Amateurfussballverein unterstützt. Farbschema: Blau (#22274e), Rot (#e53832) und Grau (#c0c0c1).
 
 ## Features
 
 - **Bearbeitbarer Header**: obere Kontaktleiste, Hinweistext, CTA-Button und eigener Widget-Bereich – alles über Customizer und Widgets (Design → Anpassen → „Kopfzeile & Header")
 - **Bearbeitbarer Footer**: Über-uns-Text, drei Widget-Spalten, Footer-Menü, Copyright-Zeile (Customizer + Design → Widgets)
-- **Seitenvorlagen für jeden Seitentyp** (beim Bearbeiten einer Seite rechts unter „Vorlage" wählen):
+- **12 Seitenvorlagen für jeden Seitentyp** (beim Bearbeiten einer Seite rechts unter „Vorlage" wählen):
   - Vollbreite Seite (ohne Seitenleiste)
   - Seite mit Seitenleiste
-  - Kontaktseite
+  - Kontaktseite (mit Formular-Bereich)
+  - Formularseite (Kontakt-/Antragsformular, z. B. für Formular-Plugins)
   - Mitgliedschaft (Mitglied werden)
   - Veranstaltungsübersicht
   - Sponsoren
   - Spenden
+  - Über uns / Vorstand
+  - FAQ (Häufige Fragen, mit automatischer FAQ-Structured-Data)
+  - Übersicht: Unterseiten (zeigt Unterseiten als Karten)
+  - Rechtliches (Impressum / Datenschutz)
+- **Blockmuster als Designbausteine** (im Block-Editor unter „Muster" → Kategorie „Förderverein"): Mitglied werden, Spenden-Aufruf, Termin-Hinweis
+- **Kontaktformular-fertig**: eigener Widget-Bereich „Kontaktformular-Bereich" und fertige Styles für Contact Form 7, WPForms und Forminator – Formulare erscheinen automatisch im Theme-Look
 - Eigene Inhaltstypen: **Veranstaltungen** (mit Datum-Feld) und **Sponsoren** (mit Logo)
 - Startseite mit Hero (optional mit Hintergrundbild), Kennzahlen, News, Veranstaltungen, Mitgliedschafts-CTA, Spenden und Sponsoren
 - **Vollständig responsiv nach Mobile-First**: Basis-Styles für Smartphones, Erweiterung mit `min-width`-Media-Queries (600 / 782 / 1000 px), Hamburger-Menü auf Mobilgeräten, große Touch-Ziele, flüssige Typografie mit `clamp()`, Rücksicht auf `prefers-reduced-motion`
@@ -33,7 +40,7 @@ WordPress-Theme für einen Förderverein, der einen Amateurfussballverein unters
    - *Kontaktdaten*: Anschrift, Telefon, E-Mail (erscheinen in Kopfzeile, Footer und Kontaktseite)
    - *Spenden*: Bankverbindung
    - *Footer*: Über-uns-Text und Copyright-Zeile
-2. **Design → Widgets**: Seitenleiste, Kopfzeile und die drei Footer-Spalten befüllen.
+2. **Design → Widgets**: Seitenleiste, Kopfzeile, die drei Footer-Spalten und den „Kontaktformular-Bereich" befüllen. Für das Kontaktformular das Formular-Widget des Plugins (z. B. Contact Form 7 oder WPForms) in den „Kontaktformular-Bereich" ziehen – oder den Plugin-Shortcode direkt in den Seiteninhalt einfügen.
 3. **Design → Menüs**: Hauptmenü und Footer-Menü zuweisen.
 4. **Seiten**: Für jede Seite die passende Vorlage wählen (rechts in der Seitenleiste des Editors unter „Vorlage").
 5. **Einstellungen → Lesen**: Eine statische Seite als Startseite festlegen.
@@ -72,7 +79,11 @@ Empfehlungen außerhalb des Themes:
 
 ## Farben ändern
 
-Alle Farben sind CSS-Variablen am Anfang von `style.css` (`--fv-primary: #294597`, `--fv-accent: #c81e84`).
+Alle Farben sind CSS-Variablen am Anfang von `style.css`:
+- `--fv-primary: #22274e` (Vereinsblau)
+- `--fv-accent: #e53832` (Vereinsrot)
+- `--fv-grey: #c0c0c1` (Grau, Rahmen & Trenner)
+- `--fv-grey-light: #f3f3f4` (helle Hintergrundflächen)
 
 ## Lizenz
 

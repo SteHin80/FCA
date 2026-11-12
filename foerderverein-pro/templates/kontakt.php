@@ -53,6 +53,12 @@ $fv_email   = foerderverein_pro_contact_email();
 				</div>
 			</div>
 		</div>
+
+		<?php if ( is_active_sidebar( 'contact-form' ) ) : ?>
+			<div class="fv-form-area" style="margin-top:2rem">
+				<?php dynamic_sidebar( 'contact-form' ); ?>
+			</div>
+		<?php endif; ?>
 	</main>
 
 	<?php get_sidebar(); ?>
