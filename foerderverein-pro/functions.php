@@ -28,6 +28,89 @@ function foerderverein_pro_setup() {
 	) );
 	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script' ) );
 
+	// Gutenberg / Block-Editor.
+	add_theme_support( 'wp-block-styles' );
+	add_theme_support( 'align-wide' );
+	add_theme_support( 'responsive-embeds' );
+	add_theme_support( 'appearance-tools' );
+	add_theme_support( 'custom-line-height' );
+	add_theme_support( 'editor-styles' );
+	add_editor_style( 'assets/editor-style.css' );
+
+	add_theme_support( 'editor-color-palette', array(
+		array(
+			'name'  => __( 'Vereinsblau', 'foerderverein-pro' ),
+			'slug'  => 'fv-blue',
+			'color' => '#294597',
+		),
+		array(
+			'name'  => __( 'Vereinsblau dunkel', 'foerderverein-pro' ),
+			'slug'  => 'fv-blue-dark',
+			'color' => '#1d3270',
+		),
+		array(
+			'name'  => __( 'Vereinspink', 'foerderverein-pro' ),
+			'slug'  => 'fv-pink',
+			'color' => '#c81e84',
+		),
+		array(
+			'name'  => __( 'Dunkel', 'foerderverein-pro' ),
+			'slug'  => 'fv-dark',
+			'color' => '#10192e',
+		),
+		array(
+			'name'  => __( 'Hellgrau', 'foerderverein-pro' ),
+			'slug'  => 'fv-grey',
+			'color' => '#f4f5f8',
+		),
+		array(
+			'name'  => __( 'Weiß', 'foerderverein-pro' ),
+			'slug'  => 'fv-white',
+			'color' => '#ffffff',
+		),
+	) );
+
+	add_theme_support( 'editor-gradient-presets', array(
+		array(
+			'name'     => __( 'Vereinsblau', 'foerderverein-pro' ),
+			'slug'     => 'fv-blue-gradient',
+			'gradient' => 'linear-gradient(135deg, #1d3270 0%, #294597 100%)',
+		),
+		array(
+			'name'     => __( 'Vereinspink', 'foerderverein-pro' ),
+			'slug'     => 'fv-pink-gradient',
+			'gradient' => 'linear-gradient(135deg, #a5176c 0%, #c81e84 100%)',
+		),
+		array(
+			'name'     => __( 'Blau nach Pink', 'foerderverein-pro' ),
+			'slug'     => 'fv-blue-pink-gradient',
+			'gradient' => 'linear-gradient(135deg, #294597 0%, #c81e84 100%)',
+		),
+	) );
+
+	add_theme_support( 'editor-font-sizes', array(
+		array(
+			'name' => __( 'Klein', 'foerderverein-pro' ),
+			'slug' => 'small',
+			'size' => 14,
+		),
+		array(
+			'name' => __( 'Normal', 'foerderverein-pro' ),
+			'slug' => 'medium',
+			'size' => 17,
+		),
+		array(
+			'name' => __( 'Groß', 'foerderverein-pro' ),
+			'slug' => 'large',
+			'size' => 24,
+		),
+		array(
+			'name' => __( 'Sehr groß', 'foerderverein-pro' ),
+			'slug' => 'x-large',
+			'size' => 40,
+		),
+	) );
+
 	register_nav_menus( array(
 		'primary' => __( 'Hauptmenü', 'foerderverein-pro' ),
 		'footer'  => __( 'Footer-Menü', 'foerderverein-pro' ),

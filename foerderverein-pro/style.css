@@ -239,6 +239,55 @@ input[type="submit"].fv-btn {
 }
 .fv-stat__label { color: #5a6272; font-size: 0.95rem; }
 
+/* ---------- Gutenberg-Block-Ausrichtungen ---------- */
+.entry-content,
+.entry-summary {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fv-content--split .entry-content {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.alignwide {
+  max-width: 1040px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alignfull {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.alignleft {
+  float: left;
+  margin: 0.5rem 1.5rem 1rem 0;
+}
+
+.alignright {
+  float: right;
+  margin: 0.5rem 0 1rem 1.5rem;
+}
+
+.aligncenter {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-block-button__link { border-radius: var(--fv-radius); }
+.wp-block-quote { border-left: 4px solid var(--fv-accent); }
+
 /* ---------- CTA ---------- */
 .fv-cta {
   background: var(--fv-dark);
