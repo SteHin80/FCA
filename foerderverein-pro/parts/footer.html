@@ -1,0 +1,32 @@
+<!-- wp:group {"tagName":"footer","className":"fv-footer","backgroundColor":"fv-dark","textColor":"fv-white","layout":{"type":"constrained"}} -->
+<footer class="wp-block-group fv-footer has-fv-white-color has-fv-dark-background-color has-text-color has-background">
+	<!-- wp:columns {"style":{"spacing":{"margin":{"top":"2rem","bottom":"2rem"}}}} -->
+	<div class="wp-block-columns" style="margin-top:2rem;margin-bottom:2rem">
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:site-title {"level":0} /-->
+			<!-- wp:site-tagline {"level":0} /-->
+		</div>
+		<!-- /wp:column -->
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:heading {"level":2,"style":{"typography":{"fontSize":"1rem"}}} -->
+			<h2 class="wp-block-heading" style="font-size:1rem"><?php echo esc_html__( 'Kontakt', 'foerderverein-pro' ); ?></h2>
+			<!-- /wp:heading -->
+			<!-- wp:paragraph -->
+			<p><?php echo esc_html__( 'Bitte Kontaktdaten im Customizer pflegen oder hier direkt eintragen.', 'foerderverein-pro' ); ?></p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:column -->
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex","orientation":"vertical"}} /-->
+		</div>
+		<!-- /wp:column -->
+	</div>
+	<!-- /wp:columns -->
+	<!-- wp:paragraph {"align":"center","style":{"color":{"text":"#c0c0c1"},"typography":{"fontSize":"0.85rem"}}} -->
+	<p class="has-text-align-center has-text-color" style="color:#c0c0c1;font-size:0.85rem">© <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?></p>
+	<!-- /wp:paragraph -->
+</footer>
+<!-- /wp:group -->

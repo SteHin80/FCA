@@ -33,6 +33,8 @@ function foerderverein_pro_setup() {
 	// Gutenberg / Block-Editor.
 	add_theme_support( 'wp-block-styles' );
 	add_theme_support( 'align-wide' );
+	add_theme_support( 'block-templates' );
+	add_theme_support( 'block-template-parts' );
 	add_theme_support( 'responsive-embeds' );
 	add_theme_support( 'appearance-tools' );
 	add_theme_support( 'custom-line-height' );
@@ -131,6 +133,7 @@ add_action( 'after_setup_theme', 'foerderverein_pro_setup' );
 function foerderverein_pro_scripts() {
 	wp_enqueue_style( 'foerderverein-pro-style', get_stylesheet_uri(), array(), FOERDERVEREIN_PRO_VERSION );
 	wp_enqueue_script( 'foerderverein-pro-navigation', get_template_directory_uri() . '/assets/navigation.js', array(), FOERDERVEREIN_PRO_VERSION, true );
+	wp_script_add_data( 'foerderverein-pro-navigation', 'strategy', 'defer' );
 }
 add_action( 'wp_enqueue_scripts', 'foerderverein_pro_scripts' );
 
@@ -192,6 +195,64 @@ function foerderverein_pro_pattern_category() {
 	) );
 }
 add_action( 'init', 'foerderverein_pro_pattern_category' );
+
+/**
+ * Block-Vorlagen für Veranstaltungen (im Website-Editor editierbar).
+ * Benötigt WordPress 6.7+; bei älteren Versionen greifen die PHP-Vorlagen.
+ */
+function foerderverein_pro_register_block_templates() {
+	if ( ! function_exists( 'register_block_template' ) ) {
+		return;
+	}
+
+	$header = '<!-- wp:template-part {"slug":"header","tagName":"header"} /-->';
+	$footer = '<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->';
+
+	register_block_template(
+		'foerderverein-pro//single-fv-event',
+		array(
+			'title'       => __( 'Veranstaltung (Block-Vorlage)', 'foerderverein-pro' ),
+			'description' => __( 'Detailansicht einer Veranstaltung mit Titel, Datum, Ort und Inhalt.', 'foerderverein-pro' ),
+			'content'     => $header
+				. '<!-- wp:group {"layout":{"type":"constrained"}} -->'
+				. '<div class="wp-block-group">'
+				. '<!-- wp:post-title {"level":1} /-->'
+				. '<!-- wp:post-content /-->'
+				. '</div>'
+				. '<!-- /wp:group -->'
+				. $footer,
+			'post_types'  => array( 'fv_event' ),
+		)
+	);
+
+	register_block_template(
+		'foerderverein-pro//archive-fv-event',
+		array(
+			'title'       => __( 'Veranstaltungsübersicht (Block-Vorlage)', 'foerderverein-pro' ),
+			'description' => __( 'Archiv aller Veranstaltungen als Block-Abfrage.', 'foerderverein-pro' ),
+			'content'     => $header
+				. '<!-- wp:group {"layout":{"type":"constrained"}} -->'
+				. '<div class="wp-block-group">'
+				. '<!-- wp:query {"queryId":0,"query":{"perPage":10,"pages":0,"offset":0,"postType":"fv_event","order":"asc","orderBy":"date"}} -->'
+				. '<div class="wp-block-query">'
+				. '<!-- wp:post-template -->'
+				. '<!-- wp:post-title {"isLink":true,"level":2} /-->'
+				. '<!-- wp:post-excerpt /-->'
+				. '<!-- /wp:post-template -->'
+				. '<!-- wp:query-pagination -->'
+				. '<!-- wp:query-pagination-previous /-->'
+				. '<!-- wp:query-pagination-next /-->'
+				. '<!-- /wp:query-pagination -->'
+				. '</div>'
+				. '<!-- /wp:query -->'
+				. '</div>'
+				. '<!-- /wp:group -->'
+				. $footer,
+			'post_types'  => array(),
+		)
+	);
+}
+add_action( 'init', 'foerderverein_pro_register_block_templates', 20 );
 
 /**
  * Eigene Inhaltstypen.

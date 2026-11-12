@@ -448,17 +448,3 @@ function foerderverein_pro_flush_rewrite_rules() {
 }
 add_action( 'after_switch_theme', 'foerderverein_pro_flush_rewrite_rules' );
 
-/**
- * Eigenes Script deferred laden (bessere Ladezeit).
- *
- * @param string $tag    Script-Tag.
- * @param string $handle Script-Handle.
- * @return string
- */
-function foerderverein_pro_defer_scripts( $tag, $handle ) {
-	if ( 'foerderverein-pro-navigation' === $handle ) {
-		$tag = str_replace( ' src=', ' defer src=', $tag );
-	}
-	return $tag;
-}
-add_filter( 'script_loader_tag', 'foerderverein_pro_defer_scripts', 10, 2 );

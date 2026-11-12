@@ -19,13 +19,19 @@ WordPress-Theme für einen Förderverein, der einen Amateurfussballverein unters
   - FAQ (Häufige Fragen, mit automatischer FAQ-Structured-Data)
   - Übersicht: Unterseiten (zeigt Unterseiten als Karten)
   - Rechtliches (Impressum / Datenschutz)
-- **Blockmuster als Designbausteine** (im Block-Editor unter „Muster" → Kategorie „Förderverein"): Mitglied werden, Spenden-Aufruf, Termin-Hinweis
+- **Blockmuster als Designbausteine** (im Block-Editor unter „Muster" → Kategorie „Förderverein"): Hero-Banner, Kontakt-Bereich, Mitglied werden, Spenden-Aufruf, Termin-Hinweis
 - **Kontaktformular-fertig**: eigener Widget-Bereich „Kontaktformular-Bereich" und fertige Styles für Contact Form 7, WPForms und Forminator – Formulare erscheinen automatisch im Theme-Look
 - Eigene Inhaltstypen: **Veranstaltungen** (mit Datum-Feld) und **Sponsoren** (mit Logo)
 - Startseite mit Hero (optional mit Hintergrundbild), Kennzahlen, News, Veranstaltungen, Mitgliedschafts-CTA, Spenden und Sponsoren
 - **Vollständig responsiv nach Mobile-First**: Basis-Styles für Smartphones, Erweiterung mit `min-width`-Media-Queries (600 / 782 / 1000 px), Hamburger-Menü auf Mobilgeräten, große Touch-Ziele, flüssige Typografie mit `clamp()`, Rücksicht auf `prefers-reduced-motion`
 - **Voll Gutenberg-/Block-Editor-fähig**: Vereinsfarben und Farbverläufe als Farbpalette im Editor, Schriftgrößen, „Breit/Vollbild“-Ausrichtung für Blöcke, Editor-Styles (der Editor sieht aus wie die Website), responsive Einbettungen, eigene Zeilenhöhen und Abstände
 - Responsiv, übersetzungsbereit (Text-Domain `foerderverein-pro`)
+
+## Technische Voraussetzungen
+
+- **PHP 8.5** (das Theme ist für PHP 8.5 entwickelt; ältere PHP-Versionen werden nicht unterstützt)
+- **WordPress 6.7 oder neuer**, getestet bis WordPress 7.2
+- **Block-Vorlagen & Vorlagen-Teile**: Das Theme meldet `block-templates` und `block-template-parts` – eigene Blockvorlagen können im Editor unter „Design → Vorlagen“ erstellt werden. Zusätzlich sind zwei fertige Blockvorlagen für Veranstaltungen registriert (Einzelansicht und Übersicht, ab WordPress 6.7). Auf älteren Versionen greift automatisch die klassische PHP-Vorlage – nichts geht verloren.
 
 ## Installation
 
