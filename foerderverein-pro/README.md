@@ -16,6 +16,7 @@ WordPress-Theme für einen Förderverein, der einen Amateurfussballverein unters
   - Spenden
 - Eigene Inhaltstypen: **Veranstaltungen** (mit Datum-Feld) und **Sponsoren** (mit Logo)
 - Startseite mit Hero (optional mit Hintergrundbild), Kennzahlen, News, Veranstaltungen, Mitgliedschafts-CTA, Spenden und Sponsoren
+- **Vollständig responsiv nach Mobile-First**: Basis-Styles für Smartphones, Erweiterung mit `min-width`-Media-Queries (600 / 782 / 1000 px), Hamburger-Menü auf Mobilgeräten, große Touch-Ziele, flüssige Typografie mit `clamp()`, Rücksicht auf `prefers-reduced-motion`
 - **Voll Gutenberg-/Block-Editor-fähig**: Vereinsfarben und Farbverläufe als Farbpalette im Editor, Schriftgrößen, „Breit/Vollbild“-Ausrichtung für Blöcke, Editor-Styles (der Editor sieht aus wie die Website), responsive Einbettungen, eigene Zeilenhöhen und Abstände
 - Responsiv, übersetzungsbereit (Text-Domain `foerderverein-pro`)
 

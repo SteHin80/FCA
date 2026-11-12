@@ -123,6 +123,7 @@ add_action( 'after_setup_theme', 'foerderverein_pro_setup' );
  */
 function foerderverein_pro_scripts() {
 	wp_enqueue_style( 'foerderverein-pro-style', get_stylesheet_uri(), array(), FOERDERVEREIN_PRO_VERSION );
+	wp_enqueue_script( 'foerderverein-pro-navigation', get_template_directory_uri() . '/assets/navigation.js', array(), FOERDERVEREIN_PRO_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'foerderverein_pro_scripts' );
 

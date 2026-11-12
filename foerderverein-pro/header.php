@@ -41,17 +41,24 @@ $fv_email       = foerderverein_pro_contact_email();
 
 <header class="fv-header">
 	<div class="fv-container fv-header__inner">
-		<div class="fv-logo">
-			<?php if ( has_custom_logo() ) : ?>
-				<?php the_custom_logo(); ?>
-			<?php endif; ?>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<?php bloginfo( 'name' ); ?>
-				<span class="fv-logo__tag"><?php bloginfo( 'description' ); ?></span>
-			</a>
+		<div class="fv-logo__row">
+			<div class="fv-logo">
+				<?php if ( has_custom_logo() ) : ?>
+					<?php the_custom_logo(); ?>
+				<?php endif; ?>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<?php bloginfo( 'name' ); ?>
+					<span class="fv-logo__tag"><?php bloginfo( 'description' ); ?></span>
+				</a>
+			</div>
+
+			<button class="fv-nav-toggle" aria-expanded="false" aria-controls="fv-primary-nav">
+				<span></span><span></span><span></span>
+				<span class="screen-reader-text"><?php esc_html_e( 'Menü öffnen oder schließen', 'foerderverein-pro' ); ?></span>
+			</button>
 		</div>
 
-		<nav class="fv-nav" aria-label="<?php esc_attr_e( 'Hauptmenü', 'foerderverein-pro' ); ?>">
+		<nav id="fv-primary-nav" class="fv-nav" aria-label="<?php esc_attr_e( 'Hauptmenü', 'foerderverein-pro' ); ?>">
 			<?php
 			if ( has_nav_menu( 'primary' ) ) {
 				wp_nav_menu( array(
