@@ -51,6 +51,25 @@ WordPress-Theme für einen Förderverein, der einen Amateurfussballverein unters
 | `index.php`, `archive.php`, `single.php`, `page.php` | Standardansichten |
 | `sidebar.php`, `comments.php`, `searchform.php`, `404.php` | Bausteine |
 
+## SEO & KI-Suche (eingebaut, `inc/seo.php`)
+
+Das Theme bringt ohne Plugin mit:
+
+- **Meta-Tags**: Meta-Beschreibung, Canonical-URL, korrekte robots-Angaben (`max-image-preview:large`, Suchseiten/404 auf `noindex`)
+- **Open Graph & Twitter Cards** für saubere Vorschauen in sozialen Netzwerken und Messenger
+- **JSON-LD-strukturierte Daten** (schema.org): Förderverein als Organisation (NGO) mit Kontaktdaten, Website mit Suchaktion, Artikel, **Veranstaltungen mit Datum und Ort** (erscheinen so in der Google-Ereignissuche), Brotkrumen-Navigation
+- **`llms.txt`-Endpunkt** unter `https://deine-domain.de/llms.txt`: maschinenlesbare Zusammenfassung der Website (Kontakt, Seiten, Veranstaltungen, News) für KI-Suchsysteme wie ChatGPT, Perplexity & Co. – wird bei Theme-Aktivierung automatisch eingerichtet
+- **Performance**: eigenes JavaScript wird `defer`-geladen
+
+Wichtig: Ist ein SEO-Plugin aktiv (Yoast, Rank Math, SEOPress, All in One SEO, The SEO Framework), schaltet das Theme seine eigenen Meta-/Schema-Ausgaben automatisch ab, damit nichts doppelt ausgegeben wird.
+
+Empfehlungen außerhalb des Themes:
+
+- **Sitemap** liefert WordPress bereits unter `/wp-sitemap.xml` – bei Google Search Console einreichen
+- **Site-Icon setzen** (Customizer → Website-Informationen): dient als Logo in den strukturierten Daten und als OG-Bild-Fallback
+- **KI-Crawler erlauben**: falls die robots.txt der Domain Crawler wie `GPTBot`, `PerplexityBot` oder `ClaudeBot` blockt, dort die Freigabe ergänzen, damit die Website in KI-Antworten erscheinen kann
+- Veranstaltungen mit **Datum und Ort** pflegen – nur so erscheinen sie in der Google-Ereignissuche
+
 ## Farben ändern
 
 Alle Farben sind CSS-Variablen am Anfang von `style.css` (`--fv-primary: #294597`, `--fv-accent: #c81e84`).

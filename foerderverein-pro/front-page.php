@@ -112,6 +112,9 @@ $fv_default_link = home_url( '/#mitglied-werden' );
 					<article class="fv-card">
 						<div class="fv-card__body">
 							<span class="fv-card__meta"><?php echo esc_html( foerderverein_pro_event_date( get_the_ID() ) ); ?></span>
+							<?php if ( foerderverein_pro_event_location( get_the_ID() ) ) : ?>
+								<p style="margin:0 0 0.5rem;font-size:0.9rem;color:#5a6272">📍 <?php echo esc_html( foerderverein_pro_event_location( get_the_ID() ) ); ?></p>
+							<?php endif; ?>
 							<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 							<p><?php echo esc_html( get_the_excerpt() ); ?></p>
 						</div>

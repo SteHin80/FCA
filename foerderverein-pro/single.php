@@ -26,6 +26,10 @@ get_header();
 				</span>
 				<h1 class="entry-title"><?php the_title(); ?></h1>
 
+				<?php if ( 'fv_event' === get_post_type() && foerderverein_pro_event_location( get_the_ID() ) ) : ?>
+					<p>📍 <?php echo esc_html( foerderverein_pro_event_location( get_the_ID() ) ); ?></p>
+				<?php endif; ?>
+
 				<?php if ( has_post_thumbnail() ) : ?>
 					<div class="post-thumbnail"><?php the_post_thumbnail( 'large' ); ?></div>
 				<?php endif; ?>

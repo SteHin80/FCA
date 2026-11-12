@@ -9,7 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'FOERDERVEREIN_PRO_VERSION', '1.0.0' );
+define( 'FOERDERVEREIN_PRO_VERSION', '1.2.0' );
+
+require get_template_directory() . '/inc/seo.php';
 
 /**
  * Theme-Grundfunktionen.
@@ -221,8 +223,12 @@ add_action( 'add_meta_boxes', 'foerderverein_pro_event_metabox' );
  */
 function foerderverein_pro_event_metabox_html( $post ) {
 	wp_nonce_field( 'fv_event_date_save', 'fv_event_date_nonce' );
-	$value = get_post_meta( $post->ID, '_fv_event_date', true );
-	echo '<input type="datetime-local" style="width:100%" name="fv_event_date" value="' . esc_attr( $value ) . '" />';
+	$date     = get_post_meta( $post->ID, '_fv_event_date', true );
+	$location = get_post_meta( $post->ID, '_fv_event_location', true );
+	echo '<p><label><strong>' . esc_html__( 'Beginn', 'foerderverein-pro' ) . '</strong><br />';
+	echo '<input type="datetime-local" style="width:100%" name="fv_event_date" value="' . esc_attr( $date ) . '" /></label></p>';
+	echo '<p><label><strong>' . esc_html__( 'Ort', 'foerderverein-pro' ) . '</strong><br />';
+	echo '<input type="text" style="width:100%" name="fv_event_location" value="' . esc_attr( $location ) . '" placeholder="' . esc_attr__( 'z. B. Sportplatz Musterstraße 1', 'foerderverein-pro' ) . '" /></label></p>';
 }
 
 /**
@@ -243,6 +249,9 @@ function foerderverein_pro_event_metabox_save( $post_id ) {
 	if ( isset( $_POST['fv_event_date'] ) ) {
 		update_post_meta( $post_id, '_fv_event_date', sanitize_text_field( wp_unslash( $_POST['fv_event_date'] ) ) );
 	}
+	if ( isset( $_POST['fv_event_location'] ) ) {
+		update_post_meta( $post_id, '_fv_event_location', sanitize_text_field( wp_unslash( $_POST['fv_event_location'] ) ) );
+	}
 }
 add_action( 'save_post_fv_event', 'foerderverein_pro_event_metabox_save' );
 
@@ -262,6 +271,16 @@ function foerderverein_pro_event_date( $post_id ) {
 		return '';
 	}
 	return date_i18n( get_option( 'date_format' ) . ' \u\m H:i \U\h\r', $timestamp );
+}
+
+/**
+ * Ort einer Veranstaltung.
+ *
+ * @param int $post_id Beitrag-ID.
+ * @return string Ort oder leer.
+ */
+function foerderverein_pro_event_location( $post_id ) {
+	return get_post_meta( $post_id, '_fv_event_location', true );
 }
 
 /**
